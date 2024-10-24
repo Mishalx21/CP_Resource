@@ -1,0 +1,149 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+const int MOD = 1e9 + 7;
+#define all(x) begin(x), end(x)
+#define sor(x) sort(all(x))
+#define rev(x) reverse(all(x))
+// For a problem try to generate a idea then try to "DISPROVE" the idea
+// While disproving you might get another idea , so repeat
+
+void __print(int x) { cerr << x; }
+void __print(long x) { cerr << x; }
+void __print(long long x) { cerr << x; }
+void __print(unsigned x) { cerr << x; }
+void __print(unsigned long x) { cerr << x; }
+void __print(unsigned long long x) { cerr << x; }
+void __print(float x) { cerr << x; }
+void __print(double x) { cerr << x; }
+void __print(long double x) { cerr << x; }
+void __print(char x) { cerr << '\'' << x << '\''; }
+void __print(const char *x) { cerr << '"' << x << '"'; }
+void __print(const string &x) { cerr << '"' << x << '"'; }
+void __print(bool x) { cerr << (x ? "true" : "false"); }
+
+template <typename T, typename V>
+void __print(const pair<T, V> &x)
+{
+    cerr << '{';
+    __print(x.first);
+    cerr << ',';
+    __print(x.second);
+    cerr << '}';
+}
+template <typename T>
+void __print(const T &x)
+{
+    int f = 0;
+    cerr << '{';
+    for (auto &i : x)
+        cerr << (f++ ? "," : ""), __print(i);
+    cerr << "}";
+}
+void _print() { cerr << "]\n"; }
+template <typename T, typename... V>
+void _print(T t, V... v)
+{
+    __print(t);
+    if (sizeof...(v))
+        cerr << ", ";
+    _print(v...);
+}
+#ifndef ONLINE_JUDGE
+#define debug(x...)               \
+    cerr << "[" << #x << "] = ["; \
+    _print(x)
+#else
+#define debug(x...)
+#endif
+template <typename T>
+ostream &operator+(ostream &o, const vector<T> &v)
+{
+    for (const auto &x : v)
+    {
+        o << x << " ";
+    }
+    o << "\n";
+    return o;
+}
+template <typename T>
+ostream &operator*(ostream &o, const vector<T> &v)
+{
+    for (const auto &x : v)
+    {
+        o + x;
+    }
+    return o;
+}
+template <typename T>
+istream &operator>>(istream &i, vector<T> &v)
+{
+    for (auto &x : v)
+    {
+        i >> x;
+    }
+    return i;
+}
+
+ll gcd(ll a, ll b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+ll lcm(ll a, ll b) { return (a / gcd(a, b) * b); }
+string decToBinary(ll n)
+{
+    string s = "";
+    ll i = 0;
+    while (n > 0)
+    {
+        s += to_string(n % 2);
+        n = n / 2;
+        i++;
+    }
+    reverse(s.begin(), s.end());
+    return s;
+}
+ll binaryToDecimal(string n)
+{
+    string num = n;
+    ll dec_value = 0;
+    int base = 1;
+    int len = num.length();
+    for (int i = len - 1; i >= 0; i--)
+    {
+        if (num[i] == '1')
+            dec_value += base;
+        base = base * 2;
+    }
+    return dec_value;
+}
+bool isPrime(ll n)
+{
+    if (n <= 1)
+        return false;
+    if (n <= 3)
+        return true;
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+    for (int i = 5; i * i <= n; i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+    return true;
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    // int TC;
+    // cin >> TC;
+    // for (int tc = 1; tc <= TC; tc++)
+    // {
+    //     }
+
+    return 0;
+}
